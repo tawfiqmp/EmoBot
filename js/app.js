@@ -12,8 +12,10 @@ function app() {
         url: "./bower_components/backbone/backbone.js"
     }, {
         url: "./bower_components/pathjs/path.min.js"
+    }, {
+        url: "./js/main.js"
     }).then(function() {
-        _.templateSettings.interpolate = /{([\s\S]+?)}/g;
+        _.templateSettings.interpolate = /\{([\s\S]+?)\}/g;
 
         // start app?
     });

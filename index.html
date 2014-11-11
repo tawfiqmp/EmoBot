@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RTK-EmoBot</title>
 
-    <link rel="stylesheet" type="text/css" href="css/demo.css">
-    <link rel="stylesheet" type="text/css" href="css/component.css">
+    <link rel="stylesheet" type="text/css" href="./dist/demo.css">
+    <link rel="stylesheet" type="text/css" href="./dist/component.css">
     <link rel="stylesheet" href="./bower_components/fontawesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/button.css">
+    <link rel="stylesheet" type="text/css" href="./dist/button.css">
+    <link rel="stylesheet" type="text/css" href="./dist/style.css">
     <script src="js/modernizr.custom.js"></script>
 
 </head>
@@ -22,9 +23,9 @@
                 <div class="side side-left">
                     <header class="codropsheader clearfix">
                         <div class="buttonHolder">
-                            <a href="#" class="button fa fa-sun-o fa-3x"></a>
+                            <a href="#" class="button fa fa-thumbs-up fa-3x"></a>
                             <a href="#" class="button fa fa-refresh fa-3x"></a>
-                            <a href="#" class="button fa fa-moon-o fa-3x"></a>
+                            <a href="#" class="button fa fa-thumbs-o-down fa-3x"></a>
                         </div>
                     </header>
                     <div class="intro-content">
@@ -89,27 +90,11 @@
             <div class="page page-left">
                 <div class="page-inner">
                     <section>
-                        <h2>Web Design</h2>
-                        <p>Scenario archetype complementary responsive script pixel sidebar sitemap keep it simple. Complementary visuals footer CSS from alan cooper delightful. Photoshop iconography simplicity user experience affordance narrative ascenders contour. Slab serif interstitial skeuomorphism illustrator design by committee simplicity alan cooper eye tracking. Typography contrast mental model typesetting affordance narrative from CSS. Retina simplicity design by committee typography oblique.</p>
-                        <p>Delightful ascenders contrast prototype. Ligature jakob nielsen user measure. Ligature contrast glyph rule of thirds composition interstitial dribbble. Mental model typography urbanized balance. Resolution rounded corners IDEO constraints dribbble persona. Portfolio sketch baseline 66-character line. Usability testing mental model simplicity aspect ratio pencil type. Usable sans-serif visualization leading prägnanz baseline pencil fireworks clarity omnigraffle.</p>
-                    </section>
-                    <section>
-                        <h2>Responsive</h2>
-                        <p>Card-sorting dropdown constraints alan cooper prägnanz iconography. Stakeholder balsamiq italic vector composition ethnography CSS monospace hierarchy. Eye tracking serif persona focus group.</p>
-                        <p>Typesetting artifact rounded corners eye tracking braindump drawer menu mockup dropdown measure. Jony ive eye tracking script monospace heuristic tabs sketches. Affordance eye tracking scenario usable ligature typesetting clarity responsive. Information architecture golden ratio drawer menu header affordance aspect ratio. Balsamiq slab serif IDEO cognitive dissonance kerning pixel pixel-perfect. Pixel rounded corners header workflow portfolio.</p>
-                        <p>Scenario navigation complementary jony ive helvetica archetype interstitial serif front-end. Constraints pencil usability gestalt design language mockup usability testing affordance jakob nielsen.</p>
-                    </section>
-                    <section>
-                        <h2>Prototype</h2>
-                        <p>Delightful ascenders contrast prototype. Ligature jakob nielsen user measure. Ligature contrast glyph rule of thirds composition interstitial dribbble. Mental model typography urbanized balance. Resolution rounded corners IDEO constraints dribbble persona. Portfolio sketch baseline 66-character line. Usability testing mental model simplicity aspect ratio pencil type. Usable sans-serif visualization leading prägnanz baseline pencil fireworks clarity omnigraffle.</p>
-                        <p>Paper prototype urbanized headroom typography splash screen pencil modal branding. Retina omnigraffle objectified descender navigation adobe ethnography. Innovate design by committee modern hero message. Contrast user-centered color theory keep it simple visuals bevel adobe descender splash screen. From focus group accessibility sans-serif archetype pixel-perfect complementary skeuomorphism. Focus group iconography figure-ground navigation user-centered omnigraffle from.</p>
-                    </section>
-                    <section>
-                        <h2>Typography</h2>
-                        <p>Typesetting artifact rounded corners eye tracking braindump drawer menu mockup dropdown measure. Jony ive eye tracking script monospace heuristic tabs sketches. Affordance eye tracking scenario usable ligature typesetting clarity responsive. Information architecture golden ratio drawer menu header affordance aspect ratio. Balsamiq slab serif IDEO cognitive dissonance kerning pixel pixel-perfect. Pixel rounded corners header workflow portfolio.</p>
-                        <p>Fireworks mobile skeuomorphism sitemap. Workflow iconography interaction design pixel-perfect serif. Mental model monospace typeface behavior change bauhaus from usability testing. Color theory user experience paper prototype narrative palette serif gradient header. Oblique modal 66-character line sketch responsive portfolio. Comic sans fireworks prägnanz monospace gradient design language jakob nielsen. Figure-ground pixel aspect ratio sketches rounded corners jony ive constraints mental model splash screen.</p>
-                        <p>Placeholder text by <a href="http://www.designeripsum.com/">Designer Ipsum</a>.</p>
-                        <p>Profile images are licensed under a <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/deed.en">Creative Commons BY-NC-SA 2.0</a> license. The images are from Greg Peverill-Conti's <a href="http://www.flickr.com/photos/gregpc/">1,000 faces project</a>.</p>
+                        <div class="tracks"></div>
+                        <script type='text/template' id='trackTemplate'>
+                            <iframe src="http://w.soundcloud.com/player?url=http://api.soundcloud.com/playlists/<%= id %>" width="100%" frameborder="no" height="450" scrolling="no" >
+                        </script>
+                        <!-- <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/37640558&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe> -->
                     </section>
                 </div>
                 <!-- /page-inner -->
@@ -124,6 +109,7 @@
     <script src="js/classie.js"></script>
     <script src="js/cbpSplitLayout.js"></script>
     <script type="text/javascript" src="./bower_components/Loader/loader.js" id="loaderjs" data-app="./js/app.js"></script>
+    <script src="https://connect.soundcloud.com/sdk.js"></script>
 </body>
 
 </html>
