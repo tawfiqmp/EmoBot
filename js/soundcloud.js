@@ -40,11 +40,6 @@
             this.render(); // just go ahead and render immediately
         }, 
         render: function(){
-
-            this.subViews = [
-                new RipperNameView({ className:"first-name" }),
-                new RipperNameView({ className: "last-name" })
-            ];
             
             var self = this;
 
