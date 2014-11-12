@@ -3,7 +3,7 @@
     width: 100%;
 }
 .button {
-	padding-top: 13px;
+    padding-top: 13px;
     background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
     background-image: linear-gradient(top, #f4f1ee, #fff);
     border-radius: 50%;

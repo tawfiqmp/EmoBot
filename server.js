@@ -35,7 +35,7 @@ function startServer() {
     // examples:
     // proxify('/yummly/recipes', 'http://api.yummly.com/v1/api/recipes');
     // proxify('/brewery/styles', 'https://api.brewerydb.com/v2/styles');
-       proxify('/soundcloud/playlists' 'http://api.soundcloud.com/playlists')
+
 
     // all environments
     app.set('port', process.argv[3] || process.env.PORT || 3000);
