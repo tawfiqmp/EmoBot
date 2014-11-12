@@ -16,12 +16,10 @@ function app() {
             url: "./js/GiphyApp.js"
         }, {
             url: "./js/main.js"
-        }
-    }).then(function() {
+        }).then(function() {
     _.templateSettings.interpolate = /\{([\s\S]+?)\}/g;
 
-    // start app?
-    var client = new GiphyClient();
+
 });
 
 }
