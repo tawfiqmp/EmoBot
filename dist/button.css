@@ -12,8 +12,7 @@
     margin: 0 30px 30px 0;
     position: relative;
     width: 70px;
-    -webkit-transition: all .1s linear;
-    transition: all .1s linear;
+    /*transition: all .1s linear;*/
 }
 .button:after {
     color: #e9e6e4;

@@ -13,6 +13,12 @@ function app() {
     }, {
         url: "./bower_components/pathjs/path.min.js"
     }, {
+        url: "//connect.soundcloud.com/sdk.js"
+    }, {
+        url: "./js/classie.js"
+    }, {
+        url: "./js/cbpSplitLayout.js"
+    }, {
         url: "./js/GiphyApp.js"
     }, {
         url: "./js/main.js"

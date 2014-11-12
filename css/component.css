@@ -163,8 +163,8 @@ body {
 .open-left .back-right {
 	visibility: visible;
 	opacity: 1;
-	-webkit-transition-delay: 0.3s;
-	transition-delay: 0.3s;
+	/*-webkit-transition-delay: 0.3s;*/
+	/*transition-delay: 0.3s;*/
 	pointer-events: auto;
 }
 
@@ -234,24 +234,24 @@ body {
 /* All transitions */
 .side,
 .page {
-	-webkit-transition: -webkit-transform 0.6s;
-	transition: transform 0.6s;
+	/*-webkit-transition: -webkit-transform 0.6s;*/
+	/*transition: transform 0.6s;*/
 }
 
 .overlay {
-	-webkit-transition: opacity 0.6s, visibility 0.1s 0.6s;
-	transition: opacity 0.6s, visibility 0.1s 0.6s;
+	/*-webkit-transition: opacity 0.6s, visibility 0.1s 0.6s;*/
+	/*transition: opacity 0.6s, visibility 0.1s 0.6s;*/
 }
 
 .intro-content {
-	-webkit-transition: -webkit-transform 0.6s, top 0.6s;
-	transition: transform 0.6s, top 0.6s;
+	/*-webkit-transition: -webkit-transform 0.6s, top 0.6s;*/
+	/*transition: transform 0.6s, top 0.6s;*/
 }
 
 .intro-content h1,
 .back {
-	-webkit-transition: opacity 0.3s;
-	transition: opacity 0.3s;
+	/*-webkit-transition: opacity 0.3s;*/
+	/*transition: opacity 0.3s;*/
 }
 
 /* Open and close */
@@ -278,8 +278,8 @@ body {
 .open-left .side-right .overlay {
 	visibility: visible;
 	opacity: 1;
-	-webkit-transition: opacity 0.6s;
-	transition: opacity 0.6s;
+	/*-webkit-transition: opacity 0.6s;*/
+	/*transition: opacity 0.6s;*/
 }
 
 /* Right side open */
@@ -332,8 +332,8 @@ body {
 .open-left .codropsheader {
 	opacity: 0;
 	visibility: hidden;
-	-webkit-transition: opacity 0.3s, visibility 0.1s 0.3s;
-	transition: opacity 0.3s, visibility 0.1s 0.3s;
+	/*-webkit-transition: opacity 0.3s, visibility 0.1s 0.3s;*/
+	/*transition: opacity 0.3s, visibility 0.1s 0.3s;*/
 }
 
 .open-left .page-left {
