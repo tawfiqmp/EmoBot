@@ -15,11 +15,11 @@ function app() {
         }, {
             url: "./js/GiphyApp.js"
         }, {
-            url: "./js/main.js"
+            url: "./js/super.js"
         }).then(function() {
     _.templateSettings.interpolate = /\{([\s\S]+?)\}/g;
 
-
+window.sound = new SoundApp();
 });
 
 }
