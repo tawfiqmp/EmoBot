@@ -29,7 +29,7 @@
                 search: "ryan"
             });
             this.options = _.extend({}, {
-                    $container: $('body')
+                    $container: $('div.page.page-right')
                 },
                 options
             )
