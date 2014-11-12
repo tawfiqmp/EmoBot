@@ -50,20 +50,20 @@
                 self.el.querySelector('.image').innerHTML = "<img src=" + url.data[x].images.fixed_height.url + ">";
             });
         },
-        events: {
-        }
+        events: {}
     });
 
     var AppView = Backbone.View.extend({
         el: document.querySelector('body'),
-        initialize: function(){
+        initialize: function() {
             this.giphyView = new GiphyView();
         },
         events: {
             "click .buttonHolder a": "rerender",
         },
-        rerender: function(){
+        rerender: function() {
             alert('hi!');
+            console.log();
         }
     })
 
