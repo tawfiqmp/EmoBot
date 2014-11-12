@@ -13,11 +13,15 @@ function app() {
     }, {
         url: "./bower_components/pathjs/path.min.js"
     }, {
-        url: "./js/main.js"
+        url: "./js/soundcloud.js"
+    }, {    
+        url: "connect.soundcloud.com/sdk.js"
     }).then(function() {
         _.templateSettings.interpolate = /\{([\s\S]+?)\}/g;
 
+        window.soundcloud = new SoundcloudApp();
         // start app?
+    
     });
 
 }
