@@ -1,15 +1,18 @@
 body {
-  padding: 20px;
-  color: #333;
+    padding: 20px;
+    color: #333;
 }
 h1 {
     font-weight: 300;
 }
 ul, ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 li {
-  margin: 0 0 20px 0;
+    margin: 0 0 20px 0;
+}
+div.page.page-right img {
+    width: 80%;
 }

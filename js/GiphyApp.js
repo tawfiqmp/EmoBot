@@ -1,63 +1,85 @@
 ;
 (function(window, undefined) {
+    window.GiphyModel = Backbone.Model.extend({
 
-    "use strict";
+        defaults: {
+            search: "happy",
+            format: "json",
+            api_key: "dc6zaTOxFJmzC"
+        },
+        urlRoot: function() {
+            return [
+                "/giphy/search",
+                "?q=",
+                this.get("search"),
+                "&api_key=",
+                this.get("api_key")
+            ].join("");
+        },
+        getGif: function() {
+            var self = this;
+            return this.fetch().then(function(model) {
+                return model;
+            })
+        }
+
+    });
+
     var GiphyView = Backbone.View.extend({
-        tagName: "div",
-        className: "view",
-        initialize: function(opts) {
-            this.options = _.extend(
-
-                {}, {
-                    $container: $('body')
+        template: "<div class='image'></div>",
+        initialize: function(options) {
+            this.model = new GiphyModel({
+                search: "funny"
+            });
+            this.options = _.extend({}, {
+                    $container: $('div.page.page-right')
                 },
-                opts
-            );
-            this.options.$container.prepend(this.el);
+                options
+            )
+            this.options.$container.append(this.el);
             this.render();
         },
-        template: '<img src="{images.fixed_height.url}">',
         render: function() {
-            this.el.innerHTML = _.template(this.template, this.options);
-
+            this.getRandomImage();
+            this.el.innerHTML = _.template(this.template, this.options)
+        },
+        getRandomImage: function() {
+            var self = this;
+            this.model.getGif().then(function(url) {
+                var x = (~~(Math.random() * (url.data.length)));
+                self.el.querySelector('.image').innerHTML = "<img src=" + url.data[x].images.fixed_height.url + ">";
+            });
+        },
+        events: {
         }
     });
 
-    function GiphyClient(options) {
-        this.options = _.extend({}, options, {
-            api_key: "dc6zaTOxFJmzC"
-        });
-        this.init();
-    }
+    var AppView = Backbone.View.extend({
+        el: document.querySelector('body'),
+        initialize: function(){
+            this.giphyView = new GiphyView();
+        },
+        events: {
+            "click .buttonHolder a": "rerender",
+        },
+        rerender: function(){
+            alert('hi!');
+        }
+    })
 
-    GiphyClient.prototype.queryAPI = function(search) {
-        var url = [
-            "http://api.giphy.com/v1/gifs/search?q=",
-            search,
-            "&api_key=",
-            this.options.api_key
-        ];
-        return $.get(url.join("")).then(function() {
-            return arguments[0];
-        });
-    };
+    var GiphyApp = Backbone.Router.extend({
+        initialize: function() {
+            this.appLevelView = new AppView();
+            Backbone.history.start();
+        },
+        routes: {
+            "*actions": "defaultRoute"
+        },
+        defaultRoute: function() {
+            this.appLevelView.render();
+        }
+    });
 
-    GiphyClient.prototype.makeRequest = function() {
-        $.when(
-            this.queryAPI("pokemon")
-        ).then(function() {
-            arguments[0].data.forEach(function(data) {
-            	console.log(data);
-                new GiphyView(data);
-            });
+    window.GiphyApp = GiphyApp;
 
-        });
-    };
-
-    GiphyClient.prototype.init = function() {
-        var self = this;
-        self.makeRequest();
-
-    };
-    window.GiphyClient = GiphyClient;
 })(window, undefined);

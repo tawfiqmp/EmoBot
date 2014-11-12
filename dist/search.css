@@ -50,8 +50,7 @@ ul#growing-search-freebie > li > span {
     margin-right: 0;
     border: none;
     font-size: inherit;
-    -webkit-transition: width 200ms;
-            transition: width 200ms;
+    /*transition: width 200ms;*/
     padding-top: 5px;
     padding-left: 5px;
     padding-bottom: 5px;
@@ -70,8 +69,7 @@ ul#growing-search-freebie > li > span {
     background-color: #fff;
     padding-top: 2px;
     padding-bottom: 2px;
-    -webkit-transition: color 200ms;
-            transition: color 200ms;
+    /*transition: color 200ms;*/
 }
 .growing-search .input input:hover, .growing-search .submit button:hover {
     cursor: pointer;
