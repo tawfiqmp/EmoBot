@@ -1,7 +1,7 @@
 (function(window, undefined) {
     "use strict";
 
-    window.SoundBot = Backbone.Model.extend({
+    var SoundBot = Backbone.Model.extend({
         defaults: {
             format: 'json',
             q: 'soul',
@@ -14,7 +14,7 @@
 
         urlRoot: function() {
             return [
-                'http://api.soundcloud.com/playlists',
+                'http://api.soundcloud.com/playlists?',
                 'format=',
                 this.get('format'),
                 '&q=',
@@ -44,7 +44,7 @@
     	initialize: function(){
     		this.model = new SoundBot();
     		this.render();
-    	}
+    	},
     	render: function(){
     		this.getNewSound();
     	},
@@ -55,17 +55,6 @@
         }
     });
 
-    var SoundApp = Backbone.Router.extend({
-    	initialize: function(){
-    		this.appLevelView = new SoundView();
-    		Backbone.history.start();
-    	},
-    	routes: {
-    		"*actions": "defaultRoute"
-    	},
-    	defaultRoute: function(){
-    		this.appLevelView.render();
-    	}
-    })
-    window.SoundApp = SoundApp;
+    window.SoundApp = SoundBot;
+    window.SoundView = SoundView;
 })(window, undefined);

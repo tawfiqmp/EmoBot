@@ -58,6 +58,7 @@
         el: document.querySelector('body'),
         initialize: function(){
             this.giphyView = new GiphyView();
+            this.soundView = new SoundView();
         },
         events: {
             "click .buttonHolder a": "rerender",
