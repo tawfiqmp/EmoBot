@@ -1,14 +1,15 @@
-;(function(window, undefined){
-    
+;
+(function(window, undefined) {
+
     window.Soundcloud = Backbone.Model.extend({
         defaults: {
             format: "js",
             client_id: "9f71c1134013b218057ea215865270fc",
         },
-        urlRoot: function(){
+        urlRoot: function() {
             return [
                 "https://api.soundcloud.com/",
-                "tracks.",
+                "playlists/(playlistid).",
                 this.get("format"),
                 "?client_id=",
                 this.get("client_id"),
@@ -25,48 +26,57 @@
         //         return photo ? _.template(self.flickrPhotoURLTemplate, photo) : null;
         //     })
         // }
+        SC.init ialize({
+            client_id: '9f71c1134013b218057ea215865270fc'
+        });
+        // find all sounds of buskers licensed under 'creative commons share alike'
+        SC.get('/playlists', {
+            q: 'buskers',
+        }, function(playlists) {
+            console.log(playlists);
+        });
     });
 
     var SoundcloudAppView = Backbone.View.extend({
         tagName: "div",
         className: "container",
-        loadTemplate: function(name){
-            return $.get('./templates/'+name+'.html').then(function(){
+        loadTemplate: function(name) {
+            return $.get('./templates/' + name + '.html').then(function() {
                 return arguments[0];
             })
         },
-        initialize: function(){
+        initialize: function() {
             $(document.body).append(this.el);
             this.render(); // just go ahead and render immediately
-        }, 
-        render: function(){
-            
+        },
+        render: function() {
+
             var self = this;
 
             $.when(
-                this.loadTemplate('ripper-button')
-            ).then(function(ripperTemplate){
-                self.el.innerHTML = ripperTemplate;
+                this.loadTemplate('button')
+            ).then(function(Template) {
+                self.el.innerHTML = Template;
 
-                self.subViews.forEach(function(view){
+                self.subViews.forEach(function(view) {
                     self.$el.prepend(view.el);
                 })
             })
         },
         events: {
-            "click .ripper-button": "render"
+            "click .button": "render"
         }
     })
 
     var SoundcloudApp = Backbone.Router.extend({
-        initialize: function(){
-            this.appLevelView = new RipperAppView();
+        initialize: function() {
+            this.appLevelView = new SoundcloudAppView();
             Backbone.history.start();
         },
         routes: {
             "*actions": "defaultRoute" // matches anything not matched before this, i.e. http://example.com/#anything-here
         },
-        defaultRoute: function(){
+        defaultRoute: function() {
             //...
         },
     })

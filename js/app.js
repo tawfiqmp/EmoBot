@@ -14,11 +14,9 @@ function app() {
         url: "./bower_components/pathjs/path.min.js"
     }, {
         url: "./js/GiphyApp.js"
-    }
-    // {
-    //     url: "./js/main.js"
-    // }
-    ).then(function() {
+    }, {
+        url: "./js/main.js"
+    }).then(function() {
         _.templateSettings.interpolate = /\{([\s\S]+?)\}/g;
 
         // start app?

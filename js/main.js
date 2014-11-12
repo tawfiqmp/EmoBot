@@ -8,7 +8,7 @@ App.Models.Track = Backbone.Model.extend();
 
 App.Collections.Tracks = Backbone.Collection.extend({
   model: App.Models.Track,
-  url: 'http://api.soundcloud.com/tracks'
+  url: 'http://api.soundcloud.com/playlists'
 });
 
 App.Views.Tracks = Backbone.View.extend({
@@ -46,10 +46,12 @@ var tracks = new App.Collections.Tracks();
 tracks.fetch({
   data: {
     format: 'json',
+    q: 'soul',
     client_id: '9f71c1134013b218057ea215865270fc',
     tags: 'happy',
     order: 'hotness',
-    limit: '5'
+    limit: '5',
+    offset: '0'
     
   }
 });
