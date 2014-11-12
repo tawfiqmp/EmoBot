@@ -61,10 +61,14 @@
             this.soundView = new SoundView();
         },
         events: {
-            "click .buttonHolder a": "rerender",
+            "click a.fa-thumbs-up": "uprender",
+            "click a.fa-thumbs-o-down": "downrender"
         },
-        rerender: function(){
-            alert('hi!');
+        uprender: function(){
+            alert("If you're happy and ya know it...");
+        },
+        downrender: function(){
+            alert("Awww... feeling down?")
         }
     })
 
