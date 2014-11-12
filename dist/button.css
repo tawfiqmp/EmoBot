@@ -1,22 +1,17 @@
 .buttonHolder {
-    padding-top: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    margin: 0 auto;
+    width: 105%;
 }
 .button {
-	padding-top: 16px;
+    padding-top: 13px;
     background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
     background-image: linear-gradient(top, #f4f1ee, #fff);
     border-radius: 50%;
-    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .5), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, .7);
-    height: 80px;
+    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, .5);
+    height: 70px;
     margin: 0 30px 30px 0;
     position: relative;
-    width: 80px;
+    width: 70px;
     -webkit-transition: all .1s linear;
     transition: all .1s linear;
 }
@@ -51,7 +46,6 @@
     background-image: linear-gradient(top, #fff, #f4f1ee);
     color: #0088cc;
 }
-
 .button:active {
     background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
     background-image: linear-gradient(top, #efedec, #f7f4f4);

@@ -1,6 +1,6 @@
 .buttonHolder {
-    margin: 50px auto;
-    width: 100%;
+    margin: 0 auto;
+    width: 105%;
 }
 .button {
     padding-top: 13px;
@@ -8,7 +8,6 @@
     background-image: linear-gradient(top, #f4f1ee, #fff);
     border-radius: 50%;
     box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, .5);
-    float: left;
     height: 70px;
     margin: 0 30px 30px 0;
     position: relative;
@@ -46,22 +45,6 @@
     background-image: -webkit-linear-gradient(top, #fff, #f4f1ee);
     background-image: linear-gradient(top, #fff, #f4f1ee);
     color: #0088cc;
-}
-.heart:hover:after {
-    color: #f94e66;
-    text-shadow: 0px 0px 6px #f94e66;
-}
-.flower:hover:after {
-    color: #f99e4e;
-    text-shadow: 0px 0px 6px #f99e4e;
-}
-.tick:hover:after {
-    color: #83d244;
-    text-shadow: 0px 0px 6px #83d244;
-}
-.cross:hover:after {
-    color: #eb2f2f;
-    text-shadow: 0px 0px 6px #eb2f2f;
 }
 .button:active {
     background-image: -webkit-linear-gradient(top, #efedec, #f7f4f4);
