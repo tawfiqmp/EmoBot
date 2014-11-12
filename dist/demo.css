@@ -36,9 +36,8 @@ a:hover {
 .codropsheader {
 	width: 100%;
 	margin: 0 auto;
-	text-align: left;
 	padding: 1.4em;
-	opacity: 0.7;
+	opacity: 0.95;
 	visibility: visible;
 	-webkit-transition: opacity 0.3s;
 	transition: opacity 0.3s;
