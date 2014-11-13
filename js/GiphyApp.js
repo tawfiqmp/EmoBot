@@ -3,7 +3,7 @@
     window.GiphyModel = Backbone.Model.extend({
 
         defaults: {
-            search: "happy",
+            search: "crazy",
             format: "json",
             api_key: "dc6zaTOxFJmzC"
         },
@@ -63,17 +63,34 @@
             "click a.fa-thumbs-up": "uprender",
             "click a.fa-thumbs-o-down": "downrender"
         },
-<<<<<<< HEAD
-        rerender: function() {
-            alert('hi!');
-            console.log();
-=======
-        uprender: function(){
+        uprender: function() {
+            var self = this;
             alert("If you're happy and ya know it...");
+            console.log(this.giphyView.model.attributes.search);
+            this.giphyView.model.attributes.search = "happy";
+            console.log(this.giphyView.model.attributes.search);
+            this.model = new GiphyModel({
+                search: "happy"
+            });
+            this.model.getGif().then(function(url) {
+                var x = (~~(Math.random() * (url.data.length)));
+                self.el.querySelector('.image').innerHTML = "<img src=" + url.data[x].images.fixed_height.url + ">";
+            })
+
         },
-        downrender: function(){
+        downrender: function() {
+            var self = this;
             alert("Awww... feeling down?")
->>>>>>> 4e25978fd4e21c2aab875622404aaace2d204cd7
+            console.log(this.giphyView.model.attributes.search);
+            this.giphyView.model.attributes.search = "sad";
+            console.log(this.giphyView.model.attributes.search);
+            this.model = new GiphyModel({
+                search: "sad"
+            });
+            this.model.getGif().then(function(url) {
+                var x = (~~(Math.random() * (url.data.length)));
+                self.el.querySelector('.image').innerHTML = "<img src=" + url.data[x].images.fixed_height.url + ">";
+            })
         }
     })
 
