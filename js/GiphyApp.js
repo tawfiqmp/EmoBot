@@ -129,9 +129,6 @@
                 var x = (~~(Math.random() * (url.data.length)));
                 self.el.querySelector('.image').innerHTML = "<img src=" + url.data[x].images.fixed_height.url + ">";
             })
-        },
-        refrender: function() {
-            alert("not sure what do");
         }
     })
 
