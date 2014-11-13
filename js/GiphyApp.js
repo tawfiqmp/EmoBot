@@ -29,7 +29,7 @@
         template: "<div class='image'></div>",
         initialize: function(options) {
             this.model = new GiphyModel({
-                search: "funny"
+                search: "random"
             });
             this.options = _.extend({}, {
                     $container: $('div.page.page-right')

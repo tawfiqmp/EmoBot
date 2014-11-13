@@ -27,6 +27,6 @@ url: "./js/GiphyApp.js"
 
     // start app?
     window.Giphy = new GiphyApp();
-    //window.sound = new SoundApp();
+    window.Sound = new SoundApp();
 })
 }
