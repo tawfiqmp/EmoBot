@@ -14,7 +14,7 @@
 
         urlRoot: function() {
             return [
-                'http://api.soundcloud.com/tracks?',
+                '/soundcloud/tracks?',
                 'format=',
                 this.get('format'),
                 '&q=',
