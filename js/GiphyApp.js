@@ -62,12 +62,12 @@
         events: {
             "click a.fa-thumbs-up": function(e) {
                 this.uprender(e);
-                //this.happyMusic(e);
+                this.happyMusic(e);
 
-            },   
+            },
             "click a.fa-thumbs-o-down": function(e) {
                 this.downrender(e);
-                //this.sadMusic(e);
+                this.sadMusic(e);
             },
         },
         uprender: function() {
@@ -75,7 +75,6 @@
 
             console.log(this.giphyView.model.attributes.search);
 
-            this.giphyView.model.attributes.search = "happy";
             this.model = new GiphyModel({
                 search: "happy"
             });
@@ -86,16 +85,43 @@
 
         },
 
-        // happyMusic: function() {
-        //     var self=this.
+        happyMusic: function() {
+            var self = this;
+
+            this.model = new SoundBot({
+                q: "happy"
+            });
+            console.log(this.model);
+            this.model.getSound().then(function(url) {
+            self.el.querySelector('.music').innerHTML = "";
+                for(var i = 0; i< url.length; i++){
+                    console.log(url[i]);
+                    self.el.querySelector('.music').innerHTML += "<iframe src= 'http://w.soundcloud.com/player?url=" + url[i].uri + "'width='100%' 'height=450' 'frameborder='no'>"
+                }
+            })
+        },
+        sadMusic: function() {
+            var self = this;
+
+            this.model = new SoundBot({
+                q: "sad"
+            });
+            console.log(this.model);
+            this.model.getSound().then(function(url) {
+            self.el.querySelector('.music').innerHTML = "";
+               for(var i = 0; i< url.length; i++){
+                    console.log(url[i]);
+
+                    self.el.querySelector('.music').innerHTML += "<iframe src= 'http://w.soundcloud.com/player?url=" + url[i].uri + "'width='100%' 'height=450' 'frameborder='no'>"
+                }
+            })
+        },
 
 
-        // },
         downrender: function() {
             var self = this;
 
             console.log(this.giphyView.model.attributes.search);
-            this.giphyView.model.attributes.search = "sad";
             this.model = new GiphyModel({
                 search: "sad"
             });

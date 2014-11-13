@@ -45,7 +45,7 @@
         template: "<div class='music'></div>",
     	initialize: function(options){
     		this.model = new SoundBot({
-                q: "happy",
+                q: "positive",
                 genre: "pop",
                 tags: "american"
             });
@@ -75,6 +75,6 @@
 
 //<iframe src="http://w.soundcloud.com/player?url=http://api.soundcloud.com/playlists/<%= id %>" width="100%" frameborder="no">
 
-    window.SoundApp = SoundBot;
+    window.SoundBot = SoundBot;
     window.SoundView = SoundView;
 })(window, undefined);
