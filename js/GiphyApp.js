@@ -72,7 +72,9 @@
         },
         uprender: function() {
             var self = this;
-            alert("If you're happy and ya know it...");
+
+            console.log(this.giphyView.model.attributes.search);
+
             this.giphyView.model.attributes.search = "happy";
             this.model = new GiphyModel({
                 search: "happy"
@@ -91,7 +93,8 @@
         // },
         downrender: function() {
             var self = this;
-            alert("Awww... feeling down?");
+
+            console.log(this.giphyView.model.attributes.search);
             this.giphyView.model.attributes.search = "sad";
             this.model = new GiphyModel({
                 search: "sad"
