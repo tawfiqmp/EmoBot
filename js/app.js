@@ -27,6 +27,6 @@ url: "//connect.soundcloud.com/sdk.js"
 
     // start app?
     window.Giphy = new GiphyApp();
-    //window.sound = new SoundApp();
+    window.Sound = new SoundApp();
 })
 }
