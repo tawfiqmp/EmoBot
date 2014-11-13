@@ -6,14 +6,15 @@
             format: 'json',
             q: 'soul',
             client_id: '9f71c1134013b218057ea215865270fc',
-            tags: 'happy',
+            tags: 'funny',
             limit: '5',
-            offset: '0'
+            offset: '0',
+            genre: 'rock'
         },
 
         urlRoot: function() {
             return [
-                'http://api.soundcloud.com/playlists?',
+                'http://api.soundcloud.com/tracks?',
                 'format=',
                 this.get('format'),
                 '&q=',
@@ -25,7 +26,9 @@
                 '&limit=',
                 this.get('limit'),
                 '&offset=',
-                this.get('offset')
+                this.get('offset'),
+                '&genre=',
+                this.get('genre')
             ].join("");
 
         },
@@ -41,7 +44,9 @@
         template: "<div class='music'></div>",
     	initialize: function(options){
     		this.model = new SoundBot({
-                q: "happy"
+                q: "happy",
+                genre: "pop",
+                tags: "american"
             });
             this.options = _.extend({}, {
                     $container: $('div.page.page-left')
