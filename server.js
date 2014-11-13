@@ -36,7 +36,7 @@ function startServer() {
     // proxify('/yummly/recipes', 'http://api.yummly.com/v1/api/recipes');
     // proxify('/brewery/styles', 'https://api.brewerydb.com/v2/styles');
     proxify('/giphy/search', "http://api.giphy.com/v1/gifs/search");
-    proxify('/soundcloud/tracks', "http://api.soundcloud.com");
+    proxify('/soundcloud/tracks', "http://api.soundcloud.com/tracks");
 
     // all environments
     app.set('port', process.argv[3] || process.env.PORT || 3000);
