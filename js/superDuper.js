@@ -41,7 +41,8 @@
     });
 
     var SoundView = Backbone.View.extend({
-        template: "<div class='tracks'></div>",
+        tagName: 'li'
+        template:  _.template($('#trackTemplate').html()),
     	initialize: function(){
     		this.model = new SoundBot();
             this.options = _.extend({}, {
@@ -54,15 +55,16 @@
     	},
     	render: function(){
     		this.getNewSound();
-            this.el.innerHTML = _.template(this.template, this.options)
+            this.$el.html(this.template(this.model.attributes));
     	},
         getNewSound: function() {
             var self = this;
             this.model.getSound().then(function() {
+                self.el.querySelector('.tracks').innerHTML
             });
         }
     });
 
     window.SoundApp = SoundBot;
-    window.SoundView = SoundView;
+    window.soundView = SoundView;
 })(window, undefined);
