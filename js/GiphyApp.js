@@ -60,8 +60,15 @@
             this.soundView = new SoundView();
         },
         events: {
-            "click a.fa-thumbs-up": "uprender",
-            "click a.fa-thumbs-o-down": "downrender"
+            "click a.fa-thumbs-up": function(e) {
+                this.uprender(e);
+                //this.happyMusic(e);
+
+            },   
+            "click a.fa-thumbs-o-down": function(e) {
+                this.downrender(e);
+                //this.sadMusic(e);
+            },
         },
         uprender: function() {
             var self = this;
@@ -76,6 +83,12 @@
             })
 
         },
+
+        // happyMusic: function() {
+        //     var self=this.
+
+
+        // },
         downrender: function() {
             var self = this;
             alert("Awww... feeling down?");
