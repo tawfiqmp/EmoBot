@@ -29,7 +29,7 @@
         template: "<div class='image'></div>",
         initialize: function(options) {
             this.model = new GiphyModel({
-                search: "random"
+                search: "confused"
             });
             this.options = _.extend({}, {
                     $container: $('div.page.page-right')
@@ -72,9 +72,10 @@
         },
         uprender: function() {
             var self = this;
+
             console.log(this.giphyView.model.attributes.search);
+
             this.giphyView.model.attributes.search = "happy";
-            console.log(this.giphyView.model.attributes.search);
             this.model = new GiphyModel({
                 search: "happy"
             });
@@ -92,9 +93,9 @@
         // },
         downrender: function() {
             var self = this;
+
             console.log(this.giphyView.model.attributes.search);
             this.giphyView.model.attributes.search = "sad";
-            console.log(this.giphyView.model.attributes.search);
             this.model = new GiphyModel({
                 search: "sad"
             });
@@ -102,6 +103,9 @@
                 var x = (~~(Math.random() * (url.data.length)));
                 self.el.querySelector('.image').innerHTML = "<img src=" + url.data[x].images.fixed_height.url + ">";
             })
+        },
+        refrender: function() {
+            alert("not sure what do");
         }
     })
 
