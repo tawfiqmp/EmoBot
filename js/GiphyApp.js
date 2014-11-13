@@ -68,7 +68,7 @@
             alert("If you're happy and ya know it...");
         },
         downrender: function(){
-            alert("Awww... feeling down?")
+            alert("Always look on the bright side of life...")
         }
     })
 
