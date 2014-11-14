@@ -16,3 +16,6 @@ li {
 div.page.page-right img {
     width: 80%;
 }
+img {
+	margin-left: 10%;
+}
