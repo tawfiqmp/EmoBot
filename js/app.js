@@ -19,7 +19,7 @@ url: "./js/classie.js"
 }, {
 url: "./js/cbpSplitLayout.js"
 }, {
-url: "./js/super.js"
+url: "./js/soundcloud.js"
 }, {
 url: "//connect.soundcloud.com/sdk.js"
 }).then(function() {

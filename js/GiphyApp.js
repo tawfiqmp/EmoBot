@@ -1,5 +1,5 @@
-;
 (function(window, undefined) {
+    "use strict";
     window.GiphyModel = Backbone.Model.extend({
 
         defaults: {

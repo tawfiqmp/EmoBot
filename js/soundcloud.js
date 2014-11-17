@@ -1,85 +1,80 @@
-;
 (function(window, undefined) {
+    "use strict";
 
-    window.Soundcloud = Backbone.Model.extend({
+    var SoundBot = Backbone.Model.extend({
         defaults: {
-            format: "js",
-            client_id: "9f71c1134013b218057ea215865270fc",
+            format: 'json',
+            q: 'soul',
+            client_id: '9f71c1134013b218057ea215865270fc',
+            tags: 'funny',
+            limit: '5',
+            offset: '0',
+            genre: 'rock'
         },
+
         urlRoot: function() {
             return [
-                "https://api.soundcloud.com/",
-                "playlists/(playlistid).",
-                this.get("format"),
-                "?client_id=",
-                this.get("client_id"),
+                '/soundcloud/tracks?',
+                'format=',
+                this.get('format'),
+                '&q=',
+                this.get('q'),
+                '&client_id=',
+                this.get('client_id'),
+                '&tags=',
+                this.get('tags'),
+                '&limit=',
+                this.get('limit'),
+                '&offset=',
+                this.get('offset'),
+                '&genre=',
+                this.get('genre')
             ].join("");
-        },
-        //flickrPhotoURLTemplate: "https://farm{farm}.staticflickr.com/{server}/{id}_{secret}_{options}.jpg",
-        // getMusicUrl: function(){
-        //     var self = this;
-        //     return this.fetch().then(function(){
-        //         var photos = self.get('photos');
-        //         var photo = photos && photos.photo && photos.photo.length && photos.photo[ ~~(Math.random() * (photos.photo.length-1)) ];
-        //         photo.options = "b";
 
-        //         return photo ? _.template(self.flickrPhotoURLTemplate, photo) : null;
-        //     })
-        // }
-        SC.init ialize({
-            client_id: '9f71c1134013b218057ea215865270fc'
-        });
-        // find all sounds of buskers licensed under 'creative commons share alike'
-        SC.get('/playlists', {
-            q: 'buskers',
-        }, function(playlists) {
-            console.log(playlists);
-        });
+        },
+        getSound: function() {
+            var self = this;
+            return this.fetch().then(function(model) {
+                return model;
+            });
+        }
     });
 
-    var SoundcloudAppView = Backbone.View.extend({
-        tagName: "div",
-        className: "container",
-        loadTemplate: function(name) {
-            return $.get('./templates/' + name + '.html').then(function() {
-                return arguments[0];
-            })
-        },
-        initialize: function() {
-            $(document.body).append(this.el);
-            this.render(); // just go ahead and render immediately
-        },
-        render: function() {
+    var SoundView = Backbone.View.extend({
 
+        template: "<div class='music'></div>",
+    	initialize: function(options){
+    		this.model = new SoundBot({
+                q: "positive",
+                genre: "pop",
+                tags: "american"
+            });
+            this.options = _.extend({}, {
+                    $container: $('div.page.page-left')
+                },
+                options
+            )
+            this.options.$container.append(this.el);
+    		this.render();
+    	},
+    	render: function(){
+    		this.getNewSound();
+            this.el.innerHTML = _.template(this.template, this.options)
+    	},
+        getNewSound: function() {
             var self = this;
+            this.model.getSound().then(function(url) {
 
-            $.when(
-                this.loadTemplate('button')
-            ).then(function(Template) {
-                self.el.innerHTML = Template;
-
-                self.subViews.forEach(function(view) {
-                    self.$el.prepend(view.el);
-                })
-            })
-        },
-        events: {
-            "click .button": "render"
+                for(var i = 0; i< url.length; i++){
+                    console.log(url[i]);
+                    self.el.querySelector('.music').innerHTML += "<iframe src= 'http://w.soundcloud.com/player?url=" + url[i].uri + "'width='100%' 'height=450' 'frameborder='no'>"
+                }
+            });
         }
-    })
+    });
 
-    var SoundcloudApp = Backbone.Router.extend({
-        initialize: function() {
-            this.appLevelView = new SoundcloudAppView();
-            Backbone.history.start();
-        },
-        routes: {
-            "*actions": "defaultRoute" // matches anything not matched before this, i.e. http://example.com/#anything-here
-        },
-        defaultRoute: function() {
-            //...
-        },
-    })
+//<iframe src="http://w.soundcloud.com/player?url=http://api.soundcloud.com/playlists/<%= id %>" width="100%" frameborder="no">
 
-    window.SoundcloudApp = SoundcloudApp;
+    window.SoundBot = SoundBot;
+    window.SoundView = SoundView;
 })(window, undefined);
